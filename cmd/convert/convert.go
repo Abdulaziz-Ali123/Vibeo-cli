@@ -4,6 +4,8 @@ Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 package convert
 
 import (
+	"fmt"
+
 	"github.com/spf13/cobra"
 )
 
@@ -11,21 +13,21 @@ import (
 var ConvertCmd = &cobra.Command{
 	Use:   "convert",
 	Short: "Converts video files to mp3",
-	Long:  ``,
+	Long: `Converts video files to mp3 
+For example:
+Vibeo-cli convert -f example/directory/video`,
 	Run: func(cmd *cobra.Command, args []string) {
-		cmd.Help()
+		File, _ := cmd.Flags().GetString("file")
+
+		if File != "None" {
+			fmt.Println(File)
+		} else {
+			cmd.Help()
+		}
+
 	},
 }
 
 func init() {
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// convertCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// convertCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	ConvertCmd.Flags().StringP("file", "f", "None", "Path to file desired for conversion")
 }
