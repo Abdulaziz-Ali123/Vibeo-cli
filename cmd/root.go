@@ -15,9 +15,15 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "Vibeo-cli",
 	Short: "A comand line to transcribe audio",
-	Long: `A comand line to transcribe audio and covert video/audio files to mp3 For example:
+	Long: `A comand line to transcribe audio and covert video/audio files to mp3 
+	
+For example:
 
-Vibeo-cli convert if example/directory/file
+Vibeo-cli convert -f example/directory/file
+or
+Vibeo-cli transcribe -f example/direcrory/audio.mp3 -o transcribed_file
+or
+Vibeo-cli transcribe -l https://youtube.com/example-video -o transcribed_file
 `,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:

@@ -20,7 +20,7 @@ For example:
 Vibeo-cli convert -f example/directory/video.mp4 -o audio_file`,
 	Run: func(cmd *cobra.Command, args []string) {
 		File, _ := cmd.Flags().GetString("file")
-		Output, _ := cmd.Flags().GetString("out")
+		Output, _ := cmd.Flags().GetString("output")
 
 		if File != "None" {
 			fmt.Println("Converting file...")
@@ -41,5 +41,5 @@ Vibeo-cli convert -f example/directory/video.mp4 -o audio_file`,
 
 func init() {
 	ConvertCmd.Flags().StringP("file", "f", "None", "Path to file desired for conversion")
-	ConvertCmd.Flags().StringP("out", "o", "audio", "Name of the converted file")
+	ConvertCmd.Flags().StringP("output", "o", "audio", "Name of the converted file")
 }
