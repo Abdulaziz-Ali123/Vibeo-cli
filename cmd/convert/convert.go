@@ -24,8 +24,10 @@ Vibeo-cli convert -f example/directory/video.mp4 -o audio_file`,
 
 		if File != "None" {
 			fmt.Println("Converting file...")
-			Output += ".mp3"
-			exec_cmd := exec.Command("ffmpeg", "-i", File, "-vn", "-acodec", "libmp3lame", "-ab", "192k", "-ar", "44100", "-y", Output)
+			Output += ".wav"
+
+			exec_cmd := exec.Command("ffmpeg", "-i", File, Output)
+
 			b, err := exec_cmd.CombinedOutput()
 			if err != nil {
 				log.Printf("Convertion failed %v", err)
